@@ -1,6 +1,6 @@
 # 🌦️ SkyCast — Weather Dashboard
 
-SkyCast is a modern, responsive, and premium weather dashboard web application built using HTML, CSS, and JavaScript.  
+SkyCast is a modern, responsive, and  weather dashboard web application built using HTML, CSS, and JavaScript.  
 The project provides real-time weather information, dynamic forecasts, animated UI interactions, and a professional glassmorphism design suitable for modern web applications.
 
 ---
