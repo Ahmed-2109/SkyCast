@@ -51,11 +51,8 @@ SkyCast-Pro/
 
 # 🚀 Getting Started
 
-## 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/skycast-pro.git
-```
+## 1️⃣ Live Demo
+ https://ahmed-2109.github.io/SkyCast/
 
 ---
 
