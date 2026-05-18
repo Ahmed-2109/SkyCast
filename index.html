@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =========================================
+        META TAGS
+    ========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================================
+        SEO & TITLE
+    ========================================== -->
+    <title>SkyCast |  Weather Dashboard</title>
+
+    <meta name="description"
+        content="SkyCast Pro is a modern premium weather dashboard with live weather updates, forecasts, air quality, sunrise & sunset tracking, humidity, wind, pressure, and elegant UI design.">
+
+    <!-- =========================================
+        GOOGLE FONTS
+    ========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =========================================
+        FONT AWESOME
+    ========================================== -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- =========================================
+        STYLESHEET
+    ========================================== -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="light-mode">
+
+    <!-- =========================================
+        PREMIUM BACKGROUND EFFECTS
+    ========================================== -->
+    <div class="background-overlay"></div>
+
+    <div class="animated-bg">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- =========================================
+        MAIN CONTAINER
+    ========================================== -->
+    <div class="container">
+
+        <!-- =========================================
+            HEADER
+        ========================================== -->
+        <header>
+
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+
+                <div class="logo-text">
+                    <h1>Sky<span>Cast</span></h1>
+                    <p>Smart Weather Intelligence</p>
+                </div>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="#">Home</a>
+                <a href="#">Forecast</a>
+                <a href="#">Radar</a>
+                <a href="#">Climate</a>
+                <a href="#">Support</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button id="location-btn" title="Use Current Location">
+                    <i class="fas fa-location-crosshairs"></i>
+                </button>
+
+                <button class="premium-btn">
+                    <i class="fas fa-crown"></i>
+                    Upgrade
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- =========================================
+            HERO SECTION
+        ========================================== -->
+        <section class="hero-banner glass">
+
+            <div class="hero-content">
+
+                <div class="hero-left">
+
+                    <span class="live-badge">
+                        <i class="fas fa-circle"></i>
+                        LIVE WEATHER
+                    </span>
+
+                    <h2>
+                        Accurate Weather <br>
+                        Forecasting Platform
+                    </h2>
+
+                    <p>
+                        Track real-time weather conditions, forecasts,
+                        humidity, pressure, sunrise & sunset timings,
+                        and advanced climate insights with SkyCast Pro.
+                    </p>
+
+                </div>
+
+                <div class="hero-right">
+
+                    <div class="hero-mini-card glass">
+                        <i class="fas fa-temperature-high"></i>
+                        <div>
+                            <h3>28°C</h3>
+                            <p>Feels Comfortable</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-mini-card glass">
+                        <i class="fas fa-wind"></i>
+                        <div>
+                            <h3>12 km/h</h3>
+                            <p>Wind Speed</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================
+            SEARCH SECTION
+        ========================================== -->
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <i class="fas fa-search"></i>
+
+                <input type="text"
+                    id="city-input"
+                    placeholder="Search city name..."
+                    autocomplete="off">
+
+                <button id="search-btn">
+                    Search
+                </button>
+
+            </div>
+
+            <!-- RECENT SEARCH -->
+            <div id="recent-searches" class="recent-searches">
+                <!-- Recent Searches Injected Here -->
+            </div>
+
+        </section>
+
+        <!-- =========================================
+            MAIN WEATHER CONTENT
+        ========================================== -->
+        <main id="weather-content" class="hidden">
+
+            <!-- =========================================
+                CURRENT WEATHER CARD
+            ========================================== -->
+            <section class="current-weather-card glass">
+
+                <div class="weather-main-info">
+
+                    <div class="location-date">
+
+                        <div class="location-top">
+                            <i class="fas fa-location-dot"></i>
+                            <h2 id="city-name">London, GB</h2>
+                        </div>
+
+                        <p id="current-date">
+                            Monday, 12 May
+                        </p>
+
+                        <div class="weather-status">
+                            <span>
+                                <i class="fas fa-check-circle"></i>
+                                Weather Updated
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="weather-temp-container">
+
+                        <div id="weather-icon-container">
+                            <img id="weather-icon"
+                                src=""
+                                alt="Weather Icon">
+                        </div>
+
+                        <div class="temp-details">
+
+                            <span id="current-temp">24°C</span>
+
+                            <p id="weather-desc">
+                                Partly Cloudy
+                            </p>
+
+                            <div class="temp-range">
+                                <span>H: 28°C</span>
+                                <span>L: 18°C</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- =========================================
+                    WEATHER DETAILS GRID
+                ========================================== -->
+                <div class="weather-details-grid">
+
+                    <div class="detail-item">
+                        <i class="fas fa-temperature-high"></i>
+
+                        <div class="detail-info">
+                            <span>Feels Like</span>
+                            <p id="feels-like">26°C</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-droplet"></i>
+
+                        <div class="detail-info">
+                            <span>Humidity</span>
+                            <p id="humidity">45%</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+
+                        <div class="detail-info">
+                            <span>Wind Speed</span>
+                            <p id="wind-speed">12 km/h</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-compress-arrows-alt"></i>
+
+                        <div class="detail-info">
+                            <span>Pressure</span>
+                            <p id="pressure">1012 hPa</p>
+                        </div>
+                    </div>
+
+                    <!-- NEW CARDS -->
+
+                    <div class="detail-item">
+                        <i class="fas fa-eye"></i>
+
+                        <div class="detail-info">
+                            <span>Visibility</span>
+                            <p>10 km</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-sun"></i>
+
+                        <div class="detail-info">
+                            <span>UV Index</span>
+                            <p>Moderate</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-cloud-rain"></i>
+
+                        <div class="detail-info">
+                            <span>Rain Chance</span>
+                            <p>20%</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-water"></i>
+
+                        <div class="detail-info">
+                            <span>Dew Point</span>
+                            <p>13°C</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================
+                EXTRA WEATHER CARDS
+            ========================================== -->
+            <section class="extra-cards-section">
+
+                <div class="extra-card glass">
+
+                    <div class="card-top">
+                        <h3>Sunrise & Sunset</h3>
+                        <i class="fas fa-sun"></i>
+                    </div>
+
+                    <div class="sun-info">
+                        <div>
+                            <p>Sunrise</p>
+                            <h4>06:12 AM</h4>
+                        </div>
+
+                        <div>
+                            <p>Sunset</p>
+                            <h4>06:48 PM</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="extra-card glass">
+
+                    <div class="card-top">
+                        <h3>Air Quality</h3>
+                        <i class="fas fa-leaf"></i>
+                    </div>
+
+                    <div class="air-quality">
+                        <h4>Good</h4>
+                        <p>Air quality is satisfactory and poses little risk.</p>
+                    </div>
+
+                </div>
+
+                <div class="extra-card glass">
+
+                    <div class="card-top">
+                        <h3>Comfort Level</h3>
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+
+                    <div class="comfort-level">
+                        <h4>Comfortable</h4>
+                        <p>Perfect conditions for outdoor activities.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================
+                5 DAY FORECAST
+            ========================================== -->
+            <section class="forecast-section">
+
+                <div class="section-title">
+                    <h3>5-Day Forecast</h3>
+
+                    <button class="view-btn">
+                        View Detailed Forecast
+                    </button>
+                </div>
+
+                <div id="forecast-container" class="forecast-grid">
+                    <!-- Forecast Cards Injected -->
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- =========================================
+            LOADING STATE
+        ========================================== -->
+        <div id="loading" class="loading-container hidden">
+
+            <div class="loader"></div>
+
+            <p>Fetching live weather data...</p>
+
+        </div>
+
+        <!-- =========================================
+            ERROR STATE
+        ========================================== -->
+        <div id="error-message" class="error-container hidden">
+
+            <i class="fas fa-circle-exclamation"></i>
+
+            <p>
+                City not found. Please try another location.
+            </p>
+
+        </div>
+
+        <!-- =========================================
+            WELCOME SECTION
+        ========================================== -->
+        <div id="welcome-message" class="welcome-container glass">
+
+            <div class="welcome-icon">
+                <i class="fas fa-cloud-sun-rain"></i>
+            </div>
+
+            <h2>Welcome to SkyCast Pro</h2>
+
+            <p>
+                Search for a city or use your current location
+                to experience premium weather forecasting.
+            </p>
+
+            <button class="start-btn">
+                Get Started
+            </button>
+
+        </div>
+
+        <!-- =========================================
+            NEWSLETTER SECTION
+        ========================================== -->
+        <section class="newsletter glass">
+
+            <div class="newsletter-content">
+
+                <div>
+                    <h3>Stay Updated</h3>
+
+                    <p>
+                        Subscribe to receive weather alerts and updates.
+                    </p>
+                </div>
+
+                <div class="newsletter-form">
+
+                    <input type="email"
+                        placeholder="Enter your email">
+
+                    <button>
+                        Subscribe
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================
+            FOOTER
+        ========================================== -->
+        <footer>
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+
+                    <h2>SkyCast</h2>
+
+                    <p>
+                     Weather dashboard built for
+                        modern forecasting experiences.
+                    </p>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">API</a>
+                    <a href="#">Support</a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 SkyCast. All Rights Reserved.
+                </p>
+
+                <div class="social-links">
+
+                    <a href="https://github.com/Ahmed-2109" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/syed-ahmed-afridi-392900385/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                    <a href="7674880500" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- =========================================
+        SCRIPT
+    ========================================== -->
+    <script src="script.js"></script>
+
+</body>
+</html>
